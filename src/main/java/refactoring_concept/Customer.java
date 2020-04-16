@@ -3,6 +3,9 @@ package refactoring_concept;
 import java.util.ArrayList;
 import java.util.List;
 
+import refactoring_concept.statement.HtmlStatement;
+import refactoring_concept.statement.TextStatement;
+
 public class Customer {
 	private String name;
 	private List<Rental> rentals = new ArrayList<>();
