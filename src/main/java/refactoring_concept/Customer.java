@@ -6,6 +6,7 @@ import java.util.List;
 import refactoring_concept.statement.HtmlStatement;
 import refactoring_concept.statement.Statement;
 import refactoring_concept.statement.TextStatement;
+import refactoring_concept.statement.XmlStatement;
 
 public class Customer {
 	private String name;
@@ -37,6 +38,11 @@ public class Customer {
 		return stmt.value(this);
 	}
 
+	public String xmlStatement() {
+		Statement stmt = new XmlStatement();
+		return stmt.value(this);
+	}
+	
 	public int getTotalFrequentRenterPoints() {
 		int result = 0;
 		for (Rental each : rentals) {
