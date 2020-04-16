@@ -29,6 +29,17 @@ public class Rental {
 		return result;
 	}
 	
+	/**
+	 * 최신물을 이틀 이상 대여하면 보너스 포인트 추가 지급
+	 */
+	
+	public int getFrequentRenterPoints() {
+		if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1)
+		    return 2;
+		else
+			return 1;
+	}
+	
     public Movie getMovie() {
         return this.movie;
     }
