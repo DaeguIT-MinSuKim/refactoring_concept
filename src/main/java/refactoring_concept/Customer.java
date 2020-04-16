@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import refactoring_concept.statement.HtmlStatement;
+import refactoring_concept.statement.Statement;
 import refactoring_concept.statement.TextStatement;
 
 public class Customer {
@@ -27,11 +28,13 @@ public class Customer {
 	}
 
 	public String statement() {
-		return new TextStatement().value(this);
+		Statement stmt = new TextStatement();
+		return stmt.value(this);
 	}// end of method statement
 
 	public String htmlStatement() {
-		return new HtmlStatement().value(this);
+		Statement stmt = new HtmlStatement();
+		return stmt.value(this);
 	}
 
 	public int getTotalFrequentRenterPoints() {
