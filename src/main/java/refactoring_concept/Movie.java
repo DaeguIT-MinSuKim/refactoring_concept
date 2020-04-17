@@ -1,51 +1,33 @@
 package refactoring_concept;
 
+import refactoring_concept.price.MoviePrice;
+import refactoring_concept.price.Price;
+import refactoring_concept.price.PriceFactory;
+
 public class Movie {
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
-    public static final int CHILDRENS = 2;
-    
+
     private String title;
-    private int priceCode;
+    private Price price;
     
-    public Movie(String title, int priceCode) {
+    public Movie(String title, MoviePrice priceCode) {
         this.title = title;
-        this.priceCode = priceCode;
+        setPriceCode(priceCode);
     }
 
-	public double getCharge(int aDaysRented) {
-		double result = 0;
-		switch(getPriceCode()){
-		case Movie.REGULAR:
-		    result += 2;
-		    if (aDaysRented>2)
-		        result += (aDaysRented -2 ) * 1.5;
-		    break;
-		case Movie.NEW_RELEASE:
-		    result += aDaysRented * 3;
-		    break;
-		case Movie.CHILDRENS:
-		    result += 1.5;
-		    if (aDaysRented>3)
-		        result += (aDaysRented - 3) * 1.5;
-		    break;
-		}
-		return result;
-	}
+    public double getCharge(int aDaysRented) {
+    	return price.getCharge(aDaysRented);
+    }
 	
 	public int getFrequentRenterPoints(int aDaysRented) {
-		if ((getPriceCode() == Movie.NEW_RELEASE) && aDaysRented > 1)
-		    return 2;
-		else
-			return 1;
+		return price.getFrequentRenterPoints(aDaysRented);
 	}
 	
-    public int getPriceCode() {
-        return priceCode;
+    public MoviePrice getPriceCode() {
+        return price.getPriceCode();
     }
 
-    public void setPriceCode(int aPriceCode) {
-        priceCode = aPriceCode;
+    public void setPriceCode(MoviePrice aPriceCode) {
+    	price = PriceFactory.createPrice(aPriceCode);
     }
 
     public String getTitle() {
