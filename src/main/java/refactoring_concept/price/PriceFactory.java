@@ -1,8 +1,10 @@
 package refactoring_concept.price;
 
+import refactoring_concept.MovieCode;
+
 public class PriceFactory {
 	
-	public static Price createPrice(MoviePrice priceCode) {
+	public static Price createPrice(MovieCode priceCode) {
 		switch (priceCode) {
 		case CHILDRENS:
 			return new ChildrenPrice();

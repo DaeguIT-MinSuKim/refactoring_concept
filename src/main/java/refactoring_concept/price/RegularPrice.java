@@ -1,10 +1,12 @@
 package refactoring_concept.price;
 
+import refactoring_concept.MovieCode;
+
 public class RegularPrice extends Price {
 
 	@Override
-	public MoviePrice getPriceCode() {
-		return MoviePrice.REGULAR;
+	public MovieCode getPriceCode() {
+		return MovieCode.REGULAR;
 	}
 
 	@Override
